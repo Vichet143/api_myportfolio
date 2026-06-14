@@ -38,21 +38,34 @@ class UserService {
   static async updateUser(userId, userData) {
     try {
       const userRef = db.collection("users").doc(userId);
-        const userDoc = await userRef.get();
-        if (!userDoc.exists) {
-            throw new Error("User not found");
-        }
-        const updatedData = {
-            ...userData,
-            updated_at: new Date()
-        };
-        await userRef.update(updatedData);
-        const updatedUser = await userRef.get();
-        return { id: userRef.id, userdata: updatedUser.data() };
+      const userDoc = await userRef.get();
+      if (!userDoc.exists) {
+        throw new Error("User not found");
+      }
+      const updatedData = {
+        ...userData,
+        updated_at: new Date(),
+      };
+      await userRef.update(updatedData);
+      const updatedUser = await userRef.get();
+      return { id: userRef.id, userdata: updatedUser.data() };
     } catch (error) {
-        throw new Error(error.message);
+      throw new Error(error.message);
     }
-}
+  }
+
+  static async getUserById(userId) {
+    try {
+      const userRef = db.collection("users").doc(userId);
+      const userDoc = await userRef.get();
+      if (!userDoc.exists) {
+        throw new Error("User not found");
+      }
+      return { id: userRef.id, userdata: userDoc.data() };
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
 }
 
 export default UserService;

@@ -23,3 +23,5 @@ class Education{
         }
     }
 }
+
+export default Education;
