@@ -1,6 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import UserRoute from './routes/UserRoute.js';
+import EducationRoute from './routes/EducationRoute.js';
+import ProjectRoute from './routes/ProjectRoute.js';
 import cors from 'cors';
 
 const app = express();
@@ -10,6 +12,8 @@ app.use(cors());
 // Middleware to parse incoming JSON requests
 app.use(express.json());
 app.use(UserRoute);
+app.use(EducationRoute);
+app.use(ProjectRoute);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

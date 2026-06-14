@@ -25,6 +25,16 @@ class UserController {
       res.status(400).json({ error: error.message });
     }
   }
+
+  static async getUserById(req, res) {
+    try {
+      const userId = req.query.id;
+      const result = await UserService.getUserById(userId);
+      res.status(200).json(result);
+    } catch (error) {
+      res.status(404).json({ error: error.message });
+    }
+  }
 }
 
 export default UserController;
