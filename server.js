@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import UserRoute from './routes/UserRoute.js';
 import EducationRoute from './routes/EducationRoute.js';
 import ProjectRoute from './routes/ProjectRoute.js';
+import UserSkillRoute from './routes/UserSkillRoute.js';
 import cors from 'cors';
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(UserRoute);
 app.use(EducationRoute);
 app.use(ProjectRoute);
+app.use(UserSkillRoute);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
