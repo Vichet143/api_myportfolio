@@ -5,7 +5,6 @@ import RequestChecker from "../utils/CheckRequest.js";
 class EducationService {
   static async addEducation(education) {
     try {
-      RequestChecker(education.user_id, "user_id");
       RequestChecker(education.school_name, "school_name");
       RequestChecker(education.degree, "degree");
       RequestChecker(education.field_of_study, "field_of_study");
@@ -15,7 +14,6 @@ class EducationService {
       RequestChecker(education.description, "description");
 
       const newEducation = new Education(
-        education.user_id,
         education.school_name,
         education.degree,
         education.field_of_study,

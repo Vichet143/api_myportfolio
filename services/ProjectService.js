@@ -5,12 +5,13 @@ import RequestChecker from '../utils/CheckRequest.js';
 class ProjectService {
     static async addProject(project) {
         try {
-            RequestChecker(project.user_id, "user_id");
             RequestChecker(project.title, "title");
+            RequestChecker(project.project_type, "project_type")
             RequestChecker(project.description, "description");
             RequestChecker(project.project_skill, "project_skill");
             RequestChecker(project.image_url, "image_url");
-            RequestChecker(project.github_uril, "github_uril");
+            RequestChecker(project.github_uril_frontend, "github_uril_frontend");
+            RequestChecker(project.github_uril_backend, "github_uril_backend");
             RequestChecker(project.live_demo_url, "live_demo_url");
             RequestChecker(project.start_date, "start_date");
             RequestChecker(project.end_date, "end_date");
@@ -21,12 +22,13 @@ class ProjectService {
                 : String(project.project_skill).split(',').map(s => s.trim()).filter(Boolean);
 
             const newProject = new Project(
-                project.user_id,
                 project.title,
+                project.project_type,
                 project.description,
                 skills,
                 project.image_url,
-                project.github_uril,
+                project.github_uril_frontend,
+                project.github_uril_backend,
                 project.live_demo_url,
                 project.start_date,
                 project.end_date

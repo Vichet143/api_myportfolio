@@ -5,13 +5,11 @@ import RequestChecker from "../utils/CheckRequest.js";
 class UserSkillService {
   static async addSkill(skilldata) {
     try {
-      RequestChecker(skilldata.user_id, "user_id");
       RequestChecker(skilldata.skill_name, "skill_name");
       RequestChecker(skilldata.categories, "categories");
       RequestChecker(skilldata.level, "level");
 
       const userSkill = new UserSkill(
-        skilldata.user_id,
         skilldata.skill_name,
         skilldata.categories,
         skilldata.level,

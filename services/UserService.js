@@ -66,6 +66,19 @@ class UserService {
       throw new Error(error.message);
     }
   }
+
+  static async getDataUser(){
+    try {
+      const userRefDoc = await db.collection("users").get();
+      const userData = userRefDoc.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      return userData;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
 }
 
 export default UserService;
