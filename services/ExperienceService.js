@@ -5,7 +5,6 @@ import RequestChecker from "../utils/CheckRequest.js";
 class ExperienceService {
   static async addExperience(experienceData) {
     try {
-      RequestChecker(experienceData.user_id, "user_id");
       RequestChecker(experienceData.company_name, "company_name");
       RequestChecker(experienceData.position, "position");
       RequestChecker(experienceData.start_date, "start_date");
@@ -13,7 +12,6 @@ class ExperienceService {
       RequestChecker(experienceData.description, "description");
 
       const newExperience = new Experience(
-        experienceData.user_id,
         experienceData.company_name,
         experienceData.position,
         experienceData.start_date,

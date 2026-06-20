@@ -35,6 +35,15 @@ class UserController {
       res.status(404).json({ error: error.message });
     }
   }
+
+  static async getDataUser(req, res) {
+    try {
+      const result = await UserService.getDataUser();
+      res.status(200).json(result);
+    } catch (error) {
+      res.status(404).json({ error: error.message });
+    }
+  }
 }
 
 export default UserController;

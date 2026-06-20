@@ -1,6 +1,5 @@
 class Education{
-    constructor(user_id,school_name,degree,field_of_study,start_date,end_date,grade,description){
-        this.user_id = user_id;
+    constructor(school_name,degree,field_of_study,start_date,end_date,grade,description){
         this.school_name = school_name;
         this.degree = degree;
         this.field_of_study = field_of_study;
@@ -12,7 +11,6 @@ class Education{
 
     toFirebaseObject(){
         return {
-            user_id: this.user_id,
             school_name: this.school_name,
             degree: this.degree,
             field_of_study: this.field_of_study,
