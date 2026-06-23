@@ -9,12 +9,14 @@ class CertificationService {
       RequestChecker(certificationData.organization, "organization");
       RequestChecker(certificationData.issue_date, "issue_date");
       RequestChecker(certificationData.certificate_url, "certificate_url");
+      RequestChecker(certificationData.type_certification, "type_certification");
 
       const certificate = new Certification(
         certificationData.certificate_name,
         certificationData.organization,
         certificationData.issue_date,
         certificationData.certificate_url,
+        certificationData.type_certification
       );
 
       const certificateRef = await db
