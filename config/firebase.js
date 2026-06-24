@@ -1,5 +1,4 @@
 import admin from "firebase-admin";
-import serviceAccount from "./portfolio-ccfaa-firebase-adminsdk-fbsvc-21593ef2bc.json" with { type: "json" };
 
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
