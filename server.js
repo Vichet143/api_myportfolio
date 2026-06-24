@@ -6,6 +6,7 @@ import ProjectRoute from './routes/ProjectRoute.js';
 import UserSkillRoute from './routes/UserSkillRoute.js';
 import ExperienceRoute from './routes/ExperienceRoute.js'
 import CertificateRoute from './routes/CertificationRoute.js'
+import SoftSkillRoute from './routes/SoftSkillRoute.js'
 import cors from 'cors';
 
 const app = express();
@@ -19,7 +20,8 @@ app.use(EducationRoute);
 app.use(ProjectRoute);
 app.use(UserSkillRoute);
 app.use(ExperienceRoute);
-app.use(CertificateRoute)
+app.use(CertificateRoute);
+app.use(SoftSkillRoute)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

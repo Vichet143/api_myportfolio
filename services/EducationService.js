@@ -6,12 +6,14 @@ class EducationService {
   static async addEducation(education) {
     try {
       RequestChecker(education.school_name, "school_name");
+      RequestChecker(education.address, "address")
       RequestChecker(education.degree, "degree");
       RequestChecker(education.field_of_study, "field_of_study");
       RequestChecker(education.start_date, "start_date");
       RequestChecker(education.end_date, "end_date");
       RequestChecker(education.grade, "grade");
       RequestChecker(education.description, "description");
+      RequestChecker(education.google_map, "google_map");
 
       const newEducation = new Education(
         education.school_name,
@@ -21,6 +23,8 @@ class EducationService {
         education.end_date,
         education.grade,
         education.description,
+        education.address,
+        education.google_map
       );
       const educationRef = db.collection("education").doc();
       await educationRef.set(newEducation.toFirebaseObject());
